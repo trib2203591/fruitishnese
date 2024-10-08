@@ -1,7 +1,8 @@
 import express from 'express';
 import { register,login,test } from './lib/auth.js';
 import { deleteAccount } from './lib/manageAccount.js';
-import { getLeaderboard, getGame, addWord } from './lib/game.js';
+import { getGame, addWord } from './lib/game.js';
+import { getLeaderboard, updateScore, getScore } from './lib/manageScore.js';
 import cors from 'cors'
 const app = express();
 app.use(express.json());
@@ -13,8 +14,8 @@ app.post('/register', async (req, res) => {
   await register(req, res)
 });
 
-app.get('/test', async (req, res) => {
-  await test(req, res)
+app.post('/login', async (req, res) => {
+  await login(req, res)
 });
 
 app.delete('/delete', async (req, res) => {
@@ -35,9 +36,18 @@ app.post('/word', async (req, res) => {
     await addWord(req, res)
 });
 
-app.get('/test', async (req, res) => {
-    await test(req, res)
+app.post('/get-score', async (req, res) => {
+    await getScore(req, res)
 });
+
+app.post('/update-score', async (req, res) => {
+    await updateScore(req, res)
+});
+
+
+/* app.get('/test', async (req, res) => {
+  await test(req, res)
+}); */
 
 // Start the server
 app.listen(3000, () => {

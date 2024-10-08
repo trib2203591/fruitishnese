@@ -16,3 +16,5 @@ SELECT * FROM users ORDER BY random() LIMIT 1;
 SELECT q.word, k.key
 FROM question_keys q
 JOIN keys_vn k ON q.key_id = k.key_id
+
+UPDATE scores SET score = $2 WHERE user_id = $1;
