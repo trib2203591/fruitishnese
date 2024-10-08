@@ -37,7 +37,7 @@ export async function login(req, res) {
 export async function test(req, res) {
   const { username, password } = req.body;
   try{
-    const result = await client.query("select * from users where username = 'triminecraft'")
+    const result = await client.query("select * from users")
     return res.status(200).json(result.rows)
   }catch(error) {
     return res.status(500).json(error)
