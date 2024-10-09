@@ -4,6 +4,7 @@ import { deleteAccount } from './lib/manageAccount.js';
 import { getGame, addWord } from './lib/game.js';
 import { getLeaderboard, updateScore, getScore } from './lib/manageScore.js';
 import cors from 'cors'
+import { configDotenv } from 'dotenv';
 const app = express();
 app.use(express.json());
 app.use(cors());
