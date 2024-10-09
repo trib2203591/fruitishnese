@@ -23,7 +23,7 @@ export async function updateScore(req, res) {
 
 export async function getLeaderboard(req, res) {
     try {
-        const result = await client.query("select s.score, u.username from scores s join users u on s.user_id = u.user_id order by score desc limit 5");
+        const result = await client.query("select s.score, u.username, u.user_id from scores s join users u on s.user_id = u.user_id order by score desc limit 10");
         return res.status(200).json(result.rows);
     } catch (error) {
         res.status(500).json(error);

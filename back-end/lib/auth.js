@@ -20,7 +20,6 @@ export async function register(req, res) {
 // User Login
 export async function login(req, res) {
   const { username, password } = req.body;
-  console.log(username, password)
   try{
     const result = await client.query("select * from users where username = $1", [username])
     if(!result.rowCount) {
