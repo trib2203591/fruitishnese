@@ -18,7 +18,7 @@ app.post('/login', async (req, res) => {
   await login(req, res)
 });
 
-app.delete('/delete', async (req, res) => {
+app.post('/delete', async (req, res) => {
   await deleteAccount(req, res)
 });
 
