@@ -22,7 +22,8 @@ export async function deleteAccount(req, res) {
       if(result.rows[0].password !== password){
         return res.status(400).json({message: "incorrect password"});
       }
-      await client.query("DELETE FROM users WHERE username = $1", [username])
+
+      await client.query("DELETE FROM users WHERE username = $1", [result.rows[0].user_id]);
       return res.status(200).json({message: "account deleted"});
   
     }catch(error) {

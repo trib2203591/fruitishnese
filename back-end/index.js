@@ -1,10 +1,9 @@
 import express from 'express';
-import { register,login,test } from './lib/auth.js';
+import { register,login } from './lib/auth.js';
 import { deleteAccount } from './lib/manageAccount.js';
 import { getGame, addWord } from './lib/game.js';
 import { getLeaderboard, updateScore, getScore } from './lib/manageScore.js';
 import cors from 'cors'
-import { configDotenv } from 'dotenv';
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -44,11 +43,6 @@ app.post('/get-score', async (req, res) => {
 app.post('/update-score', async (req, res) => {
     await updateScore(req, res)
 });
-
-
-/* app.get('/test', async (req, res) => {
-  await test(req, res)
-}); */
 
 // Start the server
 app.listen(3000, () => {

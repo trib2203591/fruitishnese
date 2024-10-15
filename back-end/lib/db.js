@@ -9,8 +9,6 @@ const host = process.env.HOST;
 const port = process.env.PORT;
 const database = process.env.DATABASE;
 const { Client } = pg
-const { Pool } = pg
- 
 
 
 const client = new Client({
